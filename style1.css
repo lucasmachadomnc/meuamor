@@ -1,0 +1,161 @@
+/* Importação das fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+/* Reset básico e definição de variáveis de cor */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-primaria: #6d0a0a;       /* Roxo escuro para títulos */
+    --cor-secundaria: #e43552;     /* Lilás claro para fundos */
+    --cor-texto: #4a4a4a;          /* Cinza escuro para texto */
+    --cor-fundo-suave: #f7f0f5;    /* Fundo geral */
+    --cor-destaque: #d4c2d3;       /* Borda de destaque */
+    --cor-secao-especial: #fce6f5; /* Fundo para seção especial */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background-color: var(--cor-fundo-suave);
+    color: var(--cor-texto);
+}
+
+/* Seção de introdução (Hero) */
+.hero {
+    background-color: var(--cor-secundaria);
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 2px solid var(--cor-destaque);
+}
+
+.hero-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Tamanho de fonte responsivo */
+    color: var(--cor-primaria);
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--cor-primaria);
+}
+
+/* Conteúdo principal */
+.content-wrapper {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section {
+    background-color: #ffffff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+}
+
+p {
+    margin-top: 15px;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.special-message {
+    background-color: var(--cor-secao-especial);
+    border-left: 5px solid var(--cor-destaque);
+}
+
+/* Estilo da imagem */
+.topic-image {
+    margin-bottom: 20px;
+}
+
+.topic-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 3px solid #f0e6ef;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.topic-image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Rodapé (Footer) */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* --- Galeria Lateral (Scroll Vertical) --- */
+.gallery-side {
+    position: fixed; /* Fixa a galeria na tela */
+    top: 0;
+    width: 150px; /* Largura da coluna de fotos */
+    height: 100vh; /* Altura total da tela */
+    overflow: hidden; /* Esconde as imagens que estão fora da área de visualização */
+    z-index: -1; /* Coloca a galeria atrás do conteúdo principal */
+}
+
+/* Posição das galerias nos cantos */
+.left-side {
+    left: 0;
+}
+
+.right-side {
+    right: 0;
+}
+
+.gallery-inner {
+    display: flex;
+    flex-direction: column; /* Organiza as fotos em coluna */
+    align-items: center;
+    gap: 20px; /* Espaço entre as fotos */
+    animation-name: vertical-scroll;
+    animation-duration: 20s; /* Duração da animação. Ajuste este valor para mudar a velocidade */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; /* Faz a animação se repetir infinitamente */
+}
+
+/* Garante que as imagens se encaixem bem e tenham estilo */
+.gallery-side img {
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+/* Define a animação de rolagem */
+@keyframes vertical-scroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%); /* Rola as imagens até a metade do contêiner interno */
+    }
+}
